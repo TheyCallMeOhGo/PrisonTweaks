@@ -1,5 +1,6 @@
 # PrisonTweaks
 tweaks for prison
 
-## Currently just a minor fishing chat addition. May add more later, not sure yet.
+## A few simple prison tweaks.
 ![Image](https://github.com/TheyCallMeOhGo/PrisonTweaks/blob/main/prisontweaks.PNG)
+![Image](https://github.com/TheyCallMeOhGo/PrisonTweaks/blob/main/rahh.PNG)
