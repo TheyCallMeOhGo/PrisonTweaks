@@ -28,8 +28,10 @@ public class onChatMixin {
             String[] cut1 = cut[1].split("/", 2);
             String[] cut2 = cut1[0].split("\\[", 2);
             PrisonTweaks.currentXp = Integer.parseInt(cut2[1]);
+            //int current = Integer.parseInt(cut2[1]);
             String[] cut3 = cut1[1].split("]", 2);
             PrisonTweaks.nextLevelXp = Integer.parseInt(cut3[0]);
+            //int outOf = Integer.parseInt(cut3[0]);
             MinecraftClient.getInstance().player.sendMessage(Text.of("§3PrisonTweaks set current XP to " + PrisonTweaks.currentXp));
             MinecraftClient.getInstance().player.sendMessage(Text.of("§3PrisonTweaks set next level XP to " + PrisonTweaks.nextLevelXp));
             PrisonTweaks.xpSet = true;

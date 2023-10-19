@@ -4,7 +4,8 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [],
 	"client": [
-		"onChatMixin"
+		"onChatMixin",
+		"ScreenMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
