@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.HashMap;
 
 public class PrisonTweaks implements ModInitializer {
@@ -32,7 +33,7 @@ public class PrisonTweaks implements ModInitializer {
 	@Override
 	public void onInitialize() {
         LOGGER.info("Prison Tweaks");
-        File file = null;
+        /**File file = null;
         try {
             File modDirectory = FabricLoader.getInstance().getGameDir().resolve("mods").toFile();
             file = new File(modDirectory, "items.json");
@@ -49,10 +50,20 @@ public class PrisonTweaks implements ModInitializer {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }**/
         JSONParser parser = new JSONParser();
         try {
-            Object obj = parser.parse(new FileReader(file));
+            //Object obj = parser.parse(new FileReader(file));
+            URL url = new URL("https://item-guide.com/api/items.php");
+            URLConnection urlConnection = url.openConnection();
+            BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+            StringBuilder content = new StringBuilder();
+            String line;
+            while((line = in.readLine()) != null) {
+                content.append(line);
+            }
+            in.close();
+            Object obj = parser.parse(content.toString());
             JSONArray jsonArray = (JSONArray) obj;
             jsonArray.forEach((i) -> {
                 JSONObject jsonObject = (JSONObject) i;
