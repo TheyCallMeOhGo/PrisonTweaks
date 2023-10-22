@@ -33,27 +33,8 @@ public class PrisonTweaks implements ModInitializer {
 	@Override
 	public void onInitialize() {
         LOGGER.info("Prison Tweaks");
-        /**File file = null;
-        try {
-            File modDirectory = FabricLoader.getInstance().getGameDir().resolve("mods").toFile();
-            file = new File(modDirectory, "items.json");
-            file.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try (BufferedInputStream in = new BufferedInputStream(new URL("https://item-guide.com/api/items.php").openStream());
-             FileOutputStream fileOutputStream = new FileOutputStream(file)) {
-            byte dataBuffer[] = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
-                fileOutputStream.write(dataBuffer, 0, bytesRead);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }**/
         JSONParser parser = new JSONParser();
         try {
-            //Object obj = parser.parse(new FileReader(file));
             URL url = new URL("https://item-guide.com/api/items.php");
             URLConnection urlConnection = url.openConnection();
             BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
@@ -71,7 +52,6 @@ public class PrisonTweaks implements ModInitializer {
                 String desc = jsonObject.get("description").toString();
                 items.put(name, desc);
             });
-            System.out.println(items);
         } catch (Exception e) {
             e.printStackTrace();
         }
