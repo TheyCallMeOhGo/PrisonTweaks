@@ -56,7 +56,6 @@ public class PrisonTweaks implements ModInitializer {
                     ex.printStackTrace();
                 }
                 items.put(name, desc);
-                System.out.println(name + ": " + desc);
             });
         } catch (Exception e) {
             e.printStackTrace();
