@@ -49,7 +49,12 @@ public class PrisonTweaks implements ModInitializer {
             jsonArray.forEach((i) -> {
                 JSONObject jsonObject = (JSONObject) i;
                 String name = jsonObject.get("name").toString().toLowerCase().replaceAll("'", "").replaceAll(" ", "_");
-                String desc = jsonObject.get("description").toString();
+                String desc = "unknown";
+                try {
+                    desc = jsonObject.get("description").toString();
+                } catch(NullPointerException ex) {
+                    ex.printStackTrace();
+                }
                 items.put(name, desc);
             });
         } catch (Exception e) {
