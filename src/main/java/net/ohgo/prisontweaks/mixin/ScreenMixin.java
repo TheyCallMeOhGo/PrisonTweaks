@@ -33,19 +33,3 @@ public abstract class ScreenMixin {
         }
     }
 }
-
-/**@Mixin(Screen.class)
-public abstract class ScreenMixin extends AbstractParentElement {
-    @Inject(method = "getTooltipFromItem", at=@At(value="HEAD"), cancellable = true)
-    private static void getTooltipFromItem(MinecraftClient client, ItemStack stack, CallbackInfoReturnable<List<Text>> cir) {
-        String stackName = stack.getName().getString().toLowerCase().replaceAll("'", "").replaceAll(" ", "_");
-        Text description = Text.translatable("§3item-guide description: " + PrisonTweaks.items.get(stackName));
-        if (PrisonTweaks.items.containsKey(stackName)) {
-            List<Text> tooltip = stack.getTooltip(client.player, client.options.advancedItemTooltips ? TooltipContext.Default.ADVANCED : TooltipContext.Default.BASIC);
-
-            tooltip.add(description);
-
-            cir.setReturnValue(tooltip);
-        }
-    }
-}**/
