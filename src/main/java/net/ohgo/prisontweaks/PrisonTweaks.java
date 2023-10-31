@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 public class PrisonTweaks implements ModInitializer {
 	public static final String MOD_ID = "prisontweaks";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static int nextLevelXp = 0;
 
@@ -32,33 +32,33 @@ public class PrisonTweaks implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-        LOGGER.info("Prison Tweaks");
-        JSONParser parser = new JSONParser();
-        try {
-            URL url = new URL("https://item-guide.com/api/items.php");
-            URLConnection urlConnection = url.openConnection();
-            BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-            StringBuilder content = new StringBuilder();
-            String line;
-            while((line = in.readLine()) != null) {
-                content.append(line);
-            }
-            in.close();
-            Object obj = parser.parse(content.toString());
-            JSONArray jsonArray = (JSONArray) obj;
-            jsonArray.forEach((i) -> {
-                JSONObject jsonObject = (JSONObject) i;
-                String name = jsonObject.get("name").toString().toLowerCase().replaceAll("'", "").replaceAll(" ", "_");
-                String desc = "unknown";
-                try {
-                    desc = jsonObject.get("description").toString();
-                } catch(NullPointerException ex) {
-                    ex.printStackTrace();
-                }
-                items.put(name, desc);
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+		LOGGER.info("Prison Tweaks");
+		JSONParser parser = new JSONParser();
+		try {
+			URL url = new URL("https://item-guide.com/api/items.php");
+			URLConnection urlConnection = url.openConnection();
+			BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+			StringBuilder content = new StringBuilder();
+			String line;
+			while((line = in.readLine()) != null) {
+				content.append(line);
+			}
+			in.close();
+			Object obj = parser.parse(content.toString());
+			JSONArray jsonArray = (JSONArray) obj;
+			jsonArray.forEach((i) -> {
+				JSONObject jsonObject = (JSONObject) i;
+				String name = jsonObject.get("name").toString().toLowerCase().replaceAll("'", "").replaceAll(" ", "_");
+				String desc = "unknown";
+				try {
+					desc = jsonObject.get("description").toString();
+				} catch(NullPointerException ex) {
+					ex.printStackTrace();
+				}
+				items.put(name, desc);
+			});
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

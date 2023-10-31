@@ -2,8 +2,8 @@
 	"schemaVersion": 1,
 	"id": "prisontweaks",
 	"version": "${version}",
-	"name": "Prison Tweaks",
-	"description": "Tweaks for Prison",
+	"name": "PrisonTweaks",
+	"description": "tweaks for prison",
 	"authors": [
 		"TheyCallMeOhGo",
 		"SirEnder125"
@@ -19,9 +19,6 @@
 		"main": [
 			"net.ohgo.prisontweaks.PrisonTweaks"
 		],
-		"client": [
-			"net.ohgo.prisontweaks.PrisonTweaksClient"
-		],
 		"fabric-datagen": [
 			"net.ohgo.prisontweaks.PrisonTweaksDataGenerator"
 		]
@@ -30,8 +27,8 @@
 		"prisontweaks.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.22",
-		"minecraft": "~1.20.1",
+		"fabricloader": ">=0.14.24",
+		"minecraft": "~1.19.4",
 		"java": ">=17",
 		"fabric-api": "*"
 	},
